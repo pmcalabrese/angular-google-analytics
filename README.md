@@ -100,6 +100,8 @@ AnalyticsProvider.trackPages(false);
 AnalyticsProvider.setDomainName('XXX');
 //Use analytics.js instead of ga.js
 AnalyticsProvider.useAnalytics(true);
+// use set Autolink
+AnalyticsProvider.setAutolink(['domain1.com','anotherdomain.com']);
 // Ignore first page view.
 AnalyticsProvider.ignoreFirstPageLoad(true);
 //Enable eCommerce module for analytics.js
