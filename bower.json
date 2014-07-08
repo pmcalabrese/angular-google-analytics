@@ -1,8 +1,8 @@
 {
   "author": "pmcalabrese",
-  "name": "angular-google-analytics",
+  "name": "angular-google-analytics-v2",
   "description": "Easy Analytics for your AngularJS application",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/pmcalabrese/angular-google-analytics",
   "repository": {
     "type": "git",
@@ -15,5 +15,16 @@
   "devDependencies": {
     "angular-mocks": ">=1",
     "angular-scenario": ">=1"
-  }
+  },
+  "authors": [
+    "mcnocopo <marco.calabrese@nocopo.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
