@@ -9,6 +9,7 @@ angular.module('angular-google-analytics', [])
             accountId,
             trackPrefix = '',
             domainName,
+            autoLink = [],
             analyticsJS = false,
             pageEvent = '$routeChangeSuccess',
             cookieConfig = 'auto',
@@ -39,7 +40,10 @@ angular.module('angular-google-analytics', [])
             domainName = domain;
             return true;
           };
-
+          this.setAutolink = function(autoLinkArr) {
+            autoLink = autoLinkArr;
+            return true;
+          };
           this.useAnalytics = function(val) {
             analyticsJS = !!val;
             return true;
@@ -127,14 +131,27 @@ angular.module('angular-google-analytics', [])
               (i[r].q=i[r].q||[]).push(arguments);},i[r].l=1*new Date();a=s.createElement(o),
               m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m);
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            $window.ga('create', accountId, cookieConfig);
-
-            if (trackRoutes && !ignoreFirstPageLoad) {
-              $window.ga('send', 'pageview', getUrl());
-            }
-
+            
             if ($window.ga) {
+
+              var options = {};
+              
+              if (autoLink.length > 0) {
+                options = angular.extend(options,{'allowLinker': true });
+              }
+
+              $window.ga('create', accountId, cookieConfig, options);
+
+              if (trackRoutes && !ignoreFirstPageLoad) {
+                $window.ga('send', 'pageview', getUrl());
+              }
+
+              if (autoLink.length > 0) {
+                $window.ga('require','linker');
+                var autoLinkStr = JSON.stringify(autoLink);
+                $window.ga('linker:autoLink'+ autoLinkStr);
+              }
+
               if (ecommerce) {
                 $window.ga('require', 'ecommerce', 'ecommerce.js');
               }
