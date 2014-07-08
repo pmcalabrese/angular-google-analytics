@@ -160,7 +160,7 @@ angular.module('angular-google-analytics', [])
               }
               if (experimentId) {
                 var expScript = document.createElement('script'),
-                  s = document.getElementsByTagName('script')[0];
+                s = document.getElementsByTagName('script')[0];
                 expScript.src = "//www.google-analytics.com/cx/api.js?experiment=" + experimentId;
                 s.parentNode.insertBefore(expScript, s);
               }
