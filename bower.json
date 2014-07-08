@@ -1,12 +1,12 @@
 {
-  "author": "revolunet",
+  "author": "pmcalabrese",
   "name": "angular-google-analytics",
   "description": "Easy Analytics for your AngularJS application",
   "version": "0.0.3",
-  "homepage": "https://github.com/revolunet/angular-google-analytics",
+  "homepage": "https://github.com/pmcalabrese/angular-google-analytics",
   "repository": {
     "type": "git",
-    "url": "git://github.com/revolunet/angular-google-analytics.git"
+    "url": "git://github.com/pmcalabrese/angular-google-analytics.git"
   },
   "main": "./dist/angular-google-analytics.min.js",
   "dependencies": {
