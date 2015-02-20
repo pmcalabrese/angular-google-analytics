@@ -309,7 +309,43 @@ angular.module('angular-google-analytics', [])
             }
           };
 
+          /**
+           * Send custom events
+           * https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingCustomVariables#sessionLevel
+           *
+           * @param obj -> contains slot(required), name(required), value(required), scope(optional) 
+           * @private
+           */
+          this._setCustomVar = function (obj) {
+            if (!analyticsJS && $window._gaq && obj) {
+              obj.scope = obj.scope || 2;
+              $window._gaq.push(['_setCustomVar',obj.slot, obj.name, obj.value, obj.scope]);
+            }
+          };
 
+          /**
+           * Send custom events (which become custom dimension and metrics in analitics.js)
+           * https://developers.google.com/analytics/devguides/collection/analyticsjs/custom-dims-mets
+           * Example
+           *  ga('set', {
+           *     'dimension5': 'custom dimension data',
+           *     'metric5': 'custom metric data'
+           *  });
+           *
+           *  Analytics.set({
+           *     'dimension5': 'custom dimension data',
+           *     'metric5': 'custom metric data'
+           *  });
+           *
+           * @param obj -> contains slot(required), name(required), value(required), scope(optional) 
+           * @private
+           */
+          this._set = function (obj) {
+            if ($window.ga && obj) {
+              $window.ga('set', obj);
+              this._log('set', obj);
+            }
+          };
 
             // creates the ganalytics tracker
           if (analyticsJS) {
@@ -356,6 +392,12 @@ angular.module('angular-google-analytics', [])
                 },
                 send: function (obj) {
                   me._send(obj);
+                },
+                setCustomVar: function (obj) {
+                  me._setCustomVar(obj);
+                },
+                set: function (obj) {
+                  me._set(obj);
                 }
             };
         }];
