@@ -1,9 +1,8 @@
-# angular-google-analytics
+# angular-google-analytics-v2
 
 A simple service that let you integrate google analytics tracker in your AngularJS applications.
 
-Proudly brought to you by [@revolunet](http://twitter.com/revolunet) and [@deltaepsilon](https://github.com/deltaepsilon).
-Hacked by me.
+This is an extened version of the great plugin developed by [@revolunet](http://twitter.com/revolunet) and [@deltaepsilon](https://github.com/deltaepsilon).
 
 ## features
 
@@ -13,13 +12,15 @@ Hacked by me.
  - e-commerce tracking
  - multiple-domains
  - ga.js and and analytics.js support
- - custom vars and dimension
+ - custom vars and dimension (*new*)
 
 ## install
 
 `bower install angular-google-analytics-v2`
 
-Or alternatively, grab the dist/angular-google-analytics.min.js and include it in your project
+~~Or alternatively, grab the dist/angular-google-analytics.min.js and include it in your project~~
+
+Use the source file angular-google-analytics.js
 
 ## example
 
